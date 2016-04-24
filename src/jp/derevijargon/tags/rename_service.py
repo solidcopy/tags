@@ -1,16 +1,16 @@
 # coding: utf-8
 
 import os
-import re
 
-from const import *
-from find_files import find_files
-from messages import *
+from jp.derevijargon.tags.const import *
+from jp.derevijargon.tags.find_files import find_files
+from jp.derevijargon.tags.messages import *
 
-'''
-リネーム処理を行う。
-'''
+
 def execute(directory):
+    '''
+    リネーム処理を行う。
+    '''
 
     print(MSG_START_RENAME)
 
@@ -34,10 +34,10 @@ def execute(directory):
 
     print(MSG_END_RENAME)
 
-'''
-タグから適切なファイル名を決定する。
-'''
 def determine_file_name(file):
+    '''
+    タグから適切なファイル名を決定する。
+    '''
 
     # ファイル名
     file_name = ''

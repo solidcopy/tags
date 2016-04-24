@@ -1,40 +1,41 @@
 # coding: utf-8
 
-from const import *
-from DiscInfo import DiscInfo
+from jp.derevijargon.tags.const import *
 
-'''
-アルバム情報
-'''
+
 class AlbumInfo:
+    '''
+    アルバム情報
+    '''
 
-    '''
-    コンストラクタ。
-    '''
     def __init__(self):
+        '''
+        コンストラクタ。
+        '''
         ''' タグ情報 '''
         self.tags = {}
 
         ''' ディスク情報リスト '''
         self.disc_info_list = []
 
-    '''
-    ディスク情報リストを返す。
-    '''
     def get_disc_info_list(self):
+        '''
+        ディスク情報リストを返す。
+        '''
         return self.disc_info_list
 
-    '''
-    ディスク情報を追加する。
-    '''
     def add_disc_info(self, disc_info):
+        '''
+        ディスク情報を追加する。
+        '''
         self.disc_info_list.append(disc_info)
         disc_number = str(len(self.disc_info_list))
         disc_info.tags[tag_disc_number] = disc_number
         self.tags[tag_disc_total] = disc_number
 
-    '''
-    トラック情報の件数を返す。
-    '''
     def get_number_of_track_infos(self):
+        '''
+        トラック情報の件数を返す。
+        '''
         return sum([len(x.get_track_info_list()) for x in self.disc_info_list])
+

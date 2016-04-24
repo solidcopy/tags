@@ -2,7 +2,12 @@
 
 from enum import Enum
 
-from FlacFile import FlacFile
+from jp.derevijargon.tags.FlacFile import FlacFile
 
 class Format(Enum):
-    flac = {'ext':'flac', 'fileClass':FlacFile}
+    """
+    オーディオファイルフォーマット
+    """
+    
+    # FLAC
+    flac = {"ext":"flac", "fileClass":FlacFile}

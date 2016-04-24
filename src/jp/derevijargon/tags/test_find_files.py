@@ -2,7 +2,7 @@
 
 import os
 
-from find_files import find_files
+from jp.derevijargon.tags.find_files import find_files
 
 '''
 '''

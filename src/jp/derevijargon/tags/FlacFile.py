@@ -1,50 +1,49 @@
 # coding: utf-8
 
-import base64
-
 from mutagen.flac import FLAC, Picture
 
-from const import *
-from AudioFile import AudioFile
-from Image import Image
+from jp.derevijargon.tags.AudioFile import AudioFile
+from jp.derevijargon.tags.Image import Image
+from jp.derevijargon.tags.const import *
 
-'''
-FLACオーディオファイル
-'''
+
 class FlacFile(AudioFile):
+    '''
+    FLACオーディオファイル
+    '''
 
-    '''
-    コンストラクタ。
-    '''
     def __init__(self, file):
+        '''
+        コンストラクタ。
+        '''
         AudioFile.__init__(self, file)
         self.flac_file = FLAC(file)
 
-    '''
-    指定されたタグの値をリストにして返す。
-    タグが見つからなかった場合は空のリストを返す。
-    '''
     def get_tags(self, tag):
+        '''
+        指定されたタグの値をリストにして返す。
+        タグが見つからなかった場合は空のリストを返す。
+        '''
         return self.flac_file.get(tag, [])
 
-    '''
-    指定されたタグの値を文字列として返す。
-    複数の値が設定されていた場合は最初の値のみ返す。
-    タグが見つからなかった場合はNoneを返す。
-    '''
     def get_tag(self, tag):
+        '''
+        指定されたタグの値を文字列として返す。
+        複数の値が設定されていた場合は最初の値のみ返す。
+        タグが見つからなかった場合はNoneを返す。
+        '''
         return (self.get_tags(tag) or [None])[0]
 
-    '''
-    タグを設定する。
-    '''
     def set_tag(self, tag, value):
+        '''
+        タグを設定する。
+        '''
         self.flac_file[tag] = value
 
-    '''
-    アートワークの画像を返す。
-    '''
     def get_image(self):
+        '''
+        アートワークの画像を返す。
+        '''
 
         # 画像がなければNoneを返す
         if len(self.flac_file.pictures) == 0:
@@ -54,29 +53,29 @@ class FlacFile(AudioFile):
         picture = self.flac_file.pictures[0]
         return Image.create_from_data(image_extensions[picture.mime], picture.data)
 
-    '''
-    画像を削除する。
-    '''
     def remove_images(self):
+        '''
+        画像を削除する。
+        '''
         self.flac_file.clear_pictures()
 
-    '''
-    画像を設定する。
-    '''
     def set_image(self, image):
+        '''
+        画像を設定する。
+        '''
         picture = Picture()
         picture.type = 3 # Front Cover
         picture.data = image.get_data()
         self.flac_file.add_picture(picture)
 
-    '''
-    タグを削除する。
-    '''
     def remove_tag(self, tag):
+        '''
+        タグを削除する。
+        '''
         self.flac_file.pop(tag, None)
 
-    '''
-    タグの変更を保存する。
-    '''
     def save(self):
+        '''
+        タグの変更を保存する。
+        '''
         self.flac_file.save()

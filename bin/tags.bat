@@ -1,1 +1,5 @@
-python %TAGS_HOME%\src\main.py %1
+@echo off
+set SRC=%TAGS_HOME%\src
+set PYTHONPATH=%SRC%;%PYTHONPATH%
+@echo on
+python %SRC%\jp\derevijargon\tags\main.py %1

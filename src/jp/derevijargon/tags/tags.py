@@ -17,15 +17,15 @@
 
 import os
 
-from const import *
-from AudioFile import AudioFile
-from FlacFile import FlacFile
-from UnsupportedFormatError import UnsupportedFormatError
+from jp.derevijargon.tags.FlacFile import FlacFile
+from jp.derevijargon.tags.UnsupportedFormatError import UnsupportedFormatError
+from jp.derevijargon.tags.const import *
 
-'''
-tagsを実行する。
-'''
+
 def execute():
+    '''
+    tagsを実行する。
+    '''
 
     # カレントディレクトリ配下をループする
     for (root, dirs, files) in os.walk(os.curdir):
@@ -48,10 +48,10 @@ def execute():
         else:
             import_tags(root, audio_files)
 
-'''
-ファイルリストから処理対象のファイルではないものを除外する。
-'''
 def filter_files(files):
+    '''
+    ファイルリストから処理対象のファイルではないものを除外する。
+    '''
 
     # フィルター後のファイルリスト
     filtered_files = []
@@ -65,10 +65,10 @@ def filter_files(files):
 
     return filtered_files
 
-'''
-処理対象のファイルであるかを返す。
-'''
 def filter_file(file):
+    '''
+    処理対象のファイルであるかを返す。
+    '''
 
     # 拡張子を取得する
     ext = os.path.splitext(file)[1]
@@ -76,10 +76,10 @@ def filter_file(file):
     # 拡張子が処理対象ファイルのものであるかを返す
     return (0 < target_exts.count(ext))
 
-'''
-リストの各要素をオーディオファイルに変換する。
-'''
 def convert_to_audio_files(directory, filtered_files):
+    '''
+    リストの各要素をオーディオファイルに変換する。
+    '''
 
     # オーディオファイルリスト
     audio_files = []
@@ -95,10 +95,10 @@ def convert_to_audio_files(directory, filtered_files):
 
     return audio_files
 
-'''
-ファイルをオーディオファイルに変換する。
-'''
 def convert_to_audio_file(file):
+    '''
+    ファイルをオーディオファイルに変換する。
+    '''
 
     # 拡張子を取得する
     ext = os.path.splitext(file)[1]
@@ -112,10 +112,10 @@ def convert_to_audio_file(file):
     else:
         raise UnsupportedFormatError(ext)
 
-'''
-エクスポート処理を行う。
-'''
 def export_tags(directory, audio_files):
+    '''
+    エクスポート処理を行う。
+    '''
 
     # タグ情報を取得する
     tags = get_tags(audio_files)
@@ -126,16 +126,16 @@ def export_tags(directory, audio_files):
     # 画像を出力する
     write_image(directory, audio_files[0])
 
-'''
-タグ情報を取得する。
-
-取得したタグ情報はリストとなり、各要素がファイルごとのタグ情報を保持する。
-ファイルごとのタグ情報はタグ名から値への辞書である。
-
-リストの先頭要素はアルバムタグの辞書となる。
-これは引数の最初のファイルから取得され、リストのファイル間に不一致があっても警告しない。
-'''
 def get_tags(audio_files):
+    '''
+    タグ情報を取得する。
+    
+    取得したタグ情報はリストとなり、各要素がファイルごとのタグ情報を保持する。
+    ファイルごとのタグ情報はタグ名から値への辞書である。
+    
+    リストの先頭要素はアルバムタグの辞書となる。
+    これは引数の最初のファイルから取得され、リストのファイル間に不一致があっても警告しない。
+    '''
 
     # タグ情報
     tags = []
@@ -160,10 +160,10 @@ def get_tags(audio_files):
 
     return tags
 
-'''
-タグファイルを出力する。
-'''
 def write_tag_file(directory, tags):
+    '''
+    タグファイルを出力する。
+    '''
 
     # タグファイルを開く
     with open(os.path.join(directory, tag_file), 'w', encoding=tag_file_encoding) as file:
@@ -189,10 +189,10 @@ def write_tag_file(directory, tags):
                 # ファイルに出力する
                 file.write(tag + '=' + tag_info[tag] + '\n')
 
-'''
-画像を出力する。
-'''
 def write_image(directory, audio_file):
+    '''
+    画像を出力する。
+    '''
 
     # 拡張子
     ext = audio_file.get_image_ext()
@@ -208,10 +208,10 @@ def write_image(directory, audio_file):
     with open(image_file, 'wb') as file:
         file.write(audio_file.get_image_data())
 
-'''
-インポート処理を行う。
-'''
 def import_tags(directory, audio_files):
+    '''
+    インポート処理を行う。
+    '''
 
     # タグファイルからタグ情報を読み込む
     tags = parse_tag_file(directory)
@@ -278,10 +278,10 @@ def import_tags(directory, audio_files):
         # ファイル名をリネームする
         audio_file.rename_file()
 
-'''
-タグファイルからタグ情報を読み込む。
-'''
 def parse_tag_file(directory):
+    '''
+    タグファイルからタグ情報を読み込む。
+    '''
 
     # タグファイルのパス
     tag_file_path = os.path.join(directory, tag_file)
@@ -320,10 +320,10 @@ def parse_tag_file(directory):
 
     return tags
 
-'''
-画像を読み込む。
-'''
 def read_image(directory):
+    '''
+    画像を読み込む。
+    '''
 
     # 画像のパス
     image_path = find_image(directory)
@@ -334,10 +334,10 @@ def read_image(directory):
     with open(image_path, 'rb') as file:
         return file.read()
 
-'''
-画像ファイルのパスを返す。
-'''
 def find_image(directory):
+    '''
+    画像ファイルのパスを返す。
+    '''
     for image_file in image_files:
         image_path = os.path.join(directory, image_file)
         if os.path.exists(image_path):

@@ -4,16 +4,17 @@ import collections
 import os
 import sys
 
-from const import *
-from messages import *
-from find_files import find_files
-from read_tag_file import read_tag_file
-from Image import Image
+from jp.derevijargon.tags.Image import Image
+from jp.derevijargon.tags.const import *
+from jp.derevijargon.tags.find_files import find_files
+from jp.derevijargon.tags.messages import *
+from jp.derevijargon.tags.read_tag_file import read_tag_file
 
-'''
-インポート処理を行う。
-'''
+
 def execute(directory):
+    '''
+    インポート処理を行う。
+    '''
 
     print(MSG_START_IMPORT)
 

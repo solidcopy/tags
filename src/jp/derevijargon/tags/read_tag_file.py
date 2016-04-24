@@ -2,14 +2,15 @@
 
 import re
 
-from const import *
-from AlbumInfo import AlbumInfo
-from DiscInfo import DiscInfo
+from jp.derevijargon.tags.AlbumInfo import AlbumInfo
+from jp.derevijargon.tags.DiscInfo import DiscInfo
+from jp.derevijargon.tags.const import *
 
-'''
-タグファイルを読み込む。
-'''
+
 def read_tag_file(tag_file_path):
+    '''
+    タグファイルを読み込む。
+    '''
 
     # アルバム情報を作成する
     album_info = AlbumInfo()
@@ -66,20 +67,20 @@ def read_tag_file(tag_file_path):
 
     return album_info
 
-'''
-行をアルバムタグと値に分割して返す。
-タグと値でなければ('', '')。
-'''
 def parse_album_tag(line):
+    '''
+    行をアルバムタグと値に分割して返す。
+    タグと値でなければ('', '')。
+    '''
 
     match = re.match('(\\w+)=(.*)', line)
     return match.groups() if match else ('', '')
 
-'''
-行をタイトルとアーティストに分割して返す。
-アーティストがアルバムアーティストと同じならNone。
-'''
 def parse_track_tag(line):
+    '''
+    行をタイトルとアーティストに分割して返す。
+    アーティストがアルバムアーティストと同じならNone。
+    '''
     tag_and_values = line.split(track_info_separator)
     if len(tag_and_values) == 1:
         tag_and_values.append(None)

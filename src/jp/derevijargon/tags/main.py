@@ -3,23 +3,23 @@
 import os
 import sys
 
-'''
-エントリポイント。
-'''
+from jp.derevijargon.tags.const import *
+from jp.derevijargon.tags.messages import *
+
+
 def main():
+    '''
+    エントリポイント。
+    '''
     service = select_service(sys.argv)
     service(os.curdir)
 
 
-import os
-import sys
-from const import *
-from messages import *
 
-'''
-実行するサービスを選択する。
-'''
 def select_service(args):
+    '''
+    実行するサービスを選択する。
+    '''
     # コマンドライン引数が指定されている場合
     if 1 < len(args):
         # サービス指定

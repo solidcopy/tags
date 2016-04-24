@@ -5,10 +5,10 @@ import os
 from nose import *
 
 import main
-from export_service import execute as export_service
-from import_service import execute as import_service
-from rename_service import execute as rename_service
-from const import *
+from jp.derevijargon.tags.export_service import execute as export_service
+from jp.derevijargon.tags.import_service import execute as import_service
+from jp.derevijargon.tags.rename_service import execute as rename_service
+from jp.derevijargon.tags.const import *
 
 
 '''

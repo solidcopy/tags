@@ -1,52 +1,49 @@
 # coding: utf-8
 
-import re
-import os
-import shutil
+from jp.derevijargon.tags.const import *
 
-from const import *
 
-'''
-オーディオファイル
-
-タグへのアクセスなどのAPIを定義するクラス。
-'''
 class AudioFile:
+    '''
+    オーディオファイル
+    
+    タグへのアクセスなどのAPIを定義するクラス。
+    '''
 
-    '''
-    コンストラクタ。
-    '''
     def __init__(self, file_path):
+        '''
+        コンストラクタ。
+        '''
         self.file_path = file_path
 
-    '''
-    ファイルパスを返す。
-    '''
     def get_file_path(self):
+        '''
+        ファイルパスを返す。
+        '''
         return self.file_path
 
-    '''
-    アルバムタグを取得する。
-    '''
     def get_album_tags(self):
+        '''
+        アルバムタグを取得する。
+        '''
         return self.get_tag_info(album_tags)
 
-    '''
-    タグファイル中のアルバムタグを取得する。
-    '''
     def get_tag_file_album_tags(self):
+        '''
+        タグファイル中のアルバムタグを取得する。
+        '''
         return self.get_tag_info(tag_file_album_tags)
 
-    '''
-    トラックタグを取得する。
-    '''
     def get_track_tags(self):
+        '''
+        トラックタグを取得する。
+        '''
         return self.get_tag_info(track_tags)
 
-    '''
-    タグを取得する。
-    '''
     def get_tag_info(self, target_tags):
+        '''
+        タグを取得する。
+        '''
 
         # タグ情報
         tags = {}
@@ -60,19 +57,19 @@ class AudioFile:
 
         return tags
 
-    '''
-    タグ情報を更新する。
-    '''
     def update(self, tag_info_dict):
+        '''
+        タグ情報を更新する。
+        '''
         # タグと値をループする
         for a_tag, a_value in tag_info_dict.items():
             # タグを更新する
             self.set_tag(a_tag, a_value)
 
-    '''
-    リストにあるタグを削除する。
-    '''
     def remove_tags(self, tags):
+        '''
+        リストにあるタグを削除する。
+        '''
         # タグをループする
         for a_tag in tags:
             # 現在の値

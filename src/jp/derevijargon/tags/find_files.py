@@ -3,12 +3,13 @@
 import glob
 import os
 
-from Format import Format
+from jp.derevijargon.tags.Format import Format
 
-'''
-オーディオファイルを検索し、Fileリストとして返す。
-'''
+
 def find_files(directory):
+    '''
+    オーディオファイルを検索し、Fileリストとして返す。
+    '''
 
     file_list = []
 
