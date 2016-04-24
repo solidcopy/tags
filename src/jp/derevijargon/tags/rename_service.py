@@ -8,9 +8,9 @@ from jp.derevijargon.tags.messages import *
 
 
 def execute(directory):
-    '''
+    """
     リネーム処理を行う。
-    '''
+    """
 
     print(MSG_START_RENAME)
 
@@ -35,28 +35,28 @@ def execute(directory):
     print(MSG_END_RENAME)
 
 def determine_file_name(file):
-    '''
+    """
     タグから適切なファイル名を決定する。
-    '''
+    """
 
     # ファイル名
-    file_name = ''
+    file_name = ""
 
     # ディスクが複数枚の場合
-    if file.get_tag(tag_disc_total) != '1':
+    if file.get_tag(tag_disc_total) != "1":
         # ディスク番号の桁数
         disc_number_length = len(file.get_tag(tag_disc_total))
         # ディスク番号
-        disc_number = ('%0' + str(disc_number_length) + 'd') % int(file.get_tag(tag_disc_number))
+        disc_number = ("%0" + str(disc_number_length) + "d") % int(file.get_tag(tag_disc_number))
         # ディスク番号を付与する
-        file_name += disc_number + '.'
+        file_name += disc_number + "."
 
     # トラック番号の桁数
     track_number_length = len(file.get_tag(tag_track_total))
     # トラック番号
-    track_number = ('%0' + str(track_number_length) + 'd') % int(file.get_tag(tag_track_number))
+    track_number = ("%0" + str(track_number_length) + "d") % int(file.get_tag(tag_track_number))
     # トラック番号を付与する
-    file_name += track_number + '.'
+    file_name += track_number + "."
 
     # タイトルのファイル名に使用できない文字を代替文字に置換する
     title = file.get_tag(tag_title)

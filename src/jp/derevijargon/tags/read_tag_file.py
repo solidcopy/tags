@@ -8,15 +8,15 @@ from jp.derevijargon.tags.const import *
 
 
 def read_tag_file(tag_file_path):
-    '''
+    """
     タグファイルを読み込む。
-    '''
+    """
 
     # アルバム情報を作成する
     album_info = AlbumInfo()
 
     # タグファイルを開く
-    with open(tag_file_path, 'r', **tag_file_options) as tag_file:
+    with open(tag_file_path, "r", **tag_file_options) as tag_file:
 
         # 編集中のディスク情報
         disc_info = None
@@ -29,7 +29,7 @@ def read_tag_file(tag_file_path):
         for a_line in tag_file.readlines():
 
             # 改行を削除する
-            a_line = a_line.rstrip('\n')
+            a_line = a_line.rstrip("\n")
 
             # 空白行である場合
             if not a_line:
@@ -68,19 +68,19 @@ def read_tag_file(tag_file_path):
     return album_info
 
 def parse_album_tag(line):
-    '''
+    """
     行をアルバムタグと値に分割して返す。
-    タグと値でなければ('', '')。
-    '''
+    タグと値でなければ("", "")。
+    """
 
-    match = re.match('(\\w+)=(.*)', line)
-    return match.groups() if match else ('', '')
+    match = re.match("(\\w+)=(.*)", line)
+    return match.groups() if match else ("", "")
 
 def parse_track_tag(line):
-    '''
+    """
     行をタイトルとアーティストに分割して返す。
     アーティストがアルバムアーティストと同じならNone。
-    '''
+    """
     tag_and_values = line.split(track_info_separator)
     if len(tag_and_values) == 1:
         tag_and_values.append(None)

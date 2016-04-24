@@ -4,9 +4,9 @@ import os
 
 from jp.derevijargon.tags.find_files import find_files
 
-'''
-'''
+"""
+"""
 def test_find_files():
-    file_list = find_files(r'D:\music\A応P\COSMIC MAGIC STARS')
+    file_list = find_files(r"D:\music\A応P\COSMIC MAGIC STARS")
     for aFile in file_list:
-        print(aFile.get_tag('title'))
+        print(aFile.get_tag("title"))

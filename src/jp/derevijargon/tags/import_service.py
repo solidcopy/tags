@@ -12,9 +12,9 @@ from jp.derevijargon.tags.read_tag_file import read_tag_file
 
 
 def execute(directory):
-    '''
+    """
     インポート処理を行う。
-    '''
+    """
 
     print(MSG_START_IMPORT)
 
@@ -45,7 +45,7 @@ def execute(directory):
     # 画像の拡張子をループする
     for an_extension in image_extensions.values():
         # 画像のファイルパス
-        image_file_path = os.path.join(directory, image_file_name + '.' + an_extension)
+        image_file_path = os.path.join(directory, image_file_name + "." + an_extension)
         # このファイルが存在する場合
         if os.path.exists(image_file_path):
             # 画像を作成してループを抜ける
