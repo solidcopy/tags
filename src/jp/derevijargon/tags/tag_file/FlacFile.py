@@ -2,9 +2,9 @@
 
 from mutagen.flac import FLAC, Picture
 
-from jp.derevijargon.tags.AudioFile import AudioFile
-from jp.derevijargon.tags.Image import Image
-from jp.derevijargon.tags.utils import to_int
+from jp.derevijargon.tags.common.utils import to_int
+from jp.derevijargon.tags.meta.Image import Image
+from jp.derevijargon.tags.tag_file.AudioFile import AudioFile
 
 
 class FlacFile(AudioFile):

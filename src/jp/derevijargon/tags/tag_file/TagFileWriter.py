@@ -2,7 +2,7 @@
 
 import os
 
-from jp.derevijargon.tags.const import tag_file_name, artist_separator, tag_file_open_options
+from jp.derevijargon.tags.tag_file.const import tag_file_name, artist_separator, tag_file_open_options
 
 
 class TagFileWriter:

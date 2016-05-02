@@ -2,7 +2,7 @@
 
 from enum import Enum
 
-from jp.derevijargon.tags.FlacFile import FlacFile
+from jp.derevijargon.tags.tag_file.FlacFile import FlacFile
 
 
 class Format(Enum):

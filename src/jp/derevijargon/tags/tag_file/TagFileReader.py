@@ -2,9 +2,9 @@
 
 import os
 
-from jp.derevijargon.tags.AlbumInfo import AlbumInfo
-from jp.derevijargon.tags.Image import Image
-from jp.derevijargon.tags.const import tag_file_name, tag_file_open_options, artist_separator
+from jp.derevijargon.tags.meta.AlbumInfo import AlbumInfo
+from jp.derevijargon.tags.meta.Image import Image
+from jp.derevijargon.tags.tag_file.const import tag_file_name, tag_file_open_options, artist_separator
 
 
 class TagFileReader:

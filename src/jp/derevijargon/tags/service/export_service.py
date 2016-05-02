@@ -2,10 +2,10 @@
 
 import os
 
-from jp.derevijargon.tags.AlbumInfo import AlbumInfo
-from jp.derevijargon.tags.TagFileWriter import TagFileWriter
-from jp.derevijargon.tags.find_files import find_files
-import jp.derevijargon.tags.messages as messages
+import jp.derevijargon.tags.common.messages as messages
+from jp.derevijargon.tags.meta.AlbumInfo import AlbumInfo
+from jp.derevijargon.tags.service.find_files import find_files
+from jp.derevijargon.tags.tag_file.TagFileWriter import TagFileWriter
 
 
 def execute(directory):

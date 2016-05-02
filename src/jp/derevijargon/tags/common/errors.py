@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import jp.derevijargon.tags.messages as messages
+import jp.derevijargon.tags.common.messages as messages
 
 
 class UnknownServiceOptionError(BaseException):

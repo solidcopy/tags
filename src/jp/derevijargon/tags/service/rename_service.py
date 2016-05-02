@@ -2,8 +2,8 @@
 
 import os
 
-from jp.derevijargon.tags import messages
-from jp.derevijargon.tags.find_files import find_files
+from jp.derevijargon.tags.common import messages
+from jp.derevijargon.tags.service.find_files import find_files
 
 
 def execute(directory):

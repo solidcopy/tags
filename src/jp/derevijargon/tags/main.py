@@ -4,8 +4,9 @@ import os
 import re
 import sys
 
-from jp.derevijargon.tags import export_service, import_service, rename_service, errors
-import jp.derevijargon.tags.const as const
+from jp.derevijargon.tags.common import errors
+from jp.derevijargon.tags.service import export_service, import_service, rename_service
+import jp.derevijargon.tags.tag_file.const as const
 
 
 def main():

@@ -3,7 +3,7 @@
 import glob
 import os
 
-from jp.derevijargon.tags.Format import Format
+from jp.derevijargon.tags.meta.Format import Format
 
 
 def find_files(directory):

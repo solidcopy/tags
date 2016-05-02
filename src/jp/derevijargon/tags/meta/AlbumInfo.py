@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from jp.derevijargon.tags.DiscInfo import DiscInfo
+from jp.derevijargon.tags.meta.DiscInfo import DiscInfo
 
 
 class AlbumInfo:

@@ -1,8 +1,8 @@
 # coding: utf-8
 
-from jp.derevijargon.tags.TagFileReader import TagFileReader
-from jp.derevijargon.tags.find_files import find_files
-import jp.derevijargon.tags.messages as messages
+import jp.derevijargon.tags.common.messages as messages
+from jp.derevijargon.tags.service.find_files import find_files
+from jp.derevijargon.tags.tag_file.TagFileReader import TagFileReader
 
 
 def execute(directory):
