@@ -1,42 +1,50 @@
 # coding: utf-8
-
 import os
-
 
 class Image:
     """
     画像
     """
+    # 画像のファイル名
+    file_name = "Folder"
 
-    def __init__(self):
-        """
-        コンストラクタ。
-        """
-        self.extension = None
-        self.data = None
+    # 画像のMIMEから拡張子への辞書(理由は不明だが、Picture.mimeが空文字列になることが多いのでデフォルトをJPEGにする)
+    extensions = {"image/png": ".png", "image/jpeg": ".jpg", "image/jpg": ".jpg", "image/gif": ".gif", "": ".jpg"}
 
-    def create_from_data(extension, data):
+    @classmethod
+    def create_from_data(cls, mime, data):
         """
-        コンストラクタ。
-        画像のデータから作成する。
+        画像のデータからインスタンスを作成する。
         """
-        image = Image()
-        image.extension = extension
-        image.data = data
-        return image
+        return Image(Image.extensions[mime], data)
 
-    def create_from_file(file_path):
+    @classmethod
+    def create_from_file(cls, image_file):
         """
-        コンストラクタ。
-        画像のファイスパスから作成する。
+        画像ファイルからインスタンスを作成する。
         """
-        image = Image()
         # 拡張子
-        image.extension = os.path.splitext(file_path)[-1][1:]
-        # データを読み込む
-        with open(file_path, "rb") as file:
-            image.data = file.read()
-        return image
+        extension = os.path.splitext(image_file)[1]
+        # データ
+        with open(image_file, "rb") as file:
+            data = file.read()
+            
+        return Image(extension, data)
+    
+    def __init__(self, extension=None, data=None):
+        """
+        コンストラクタ。
+        """
+        # 拡張子
+        self.extension = extension
+        # データ
+        self.data = data
+
+    def get_file_name(self):
+        """
+        ファイル名を返す。
+        """
+        return Image.file_name + self.get_extension()
 
     def get_extension(self):
         """
