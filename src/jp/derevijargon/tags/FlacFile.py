@@ -99,11 +99,6 @@ class FlacFile(AudioFile):
         """アーティストリストを返す。"""
         return self.get_tags(FlacFile.artist_tag)
 
-#     def add_artist(self, artist):
-#         """
-#         アーティストを追加する。
-#         """
-#         self.get_tags(FlacFile.artist_tag).append(artist)
     def set_artist_list(self, artist_list):
         """アーティストリストを設定する。"""
         self.set_tag(FlacFile.artist_tag, artist_list)
@@ -141,12 +136,6 @@ class FlacFile(AudioFile):
         picture = self.flac_file.pictures[0]
         return Image.create_from_data(picture.mime, picture.data)
 
-    def remove_images(self):
-        """
-        画像を削除する。
-        """
-        self.flac_file.clear_pictures()
-
     def set_image(self, image):
         """
         画像を設定する。
@@ -156,12 +145,6 @@ class FlacFile(AudioFile):
         picture.data = image.get_data()
         self.flac_file.add_picture(picture)
 
-    def remove_tag(self, tag):
-        """
-        タグを削除する。
-        """
-        self.flac_file.pop(tag, None)
-
     def update_tags(self, track_info):
         """
         トラック情報からタグを更新する。
@@ -170,6 +153,16 @@ class FlacFile(AudioFile):
         self.flac_file.clear()
         self.flac_file.clear_pictures()
 
+        # トラック情報のタグ情報を設定する
+        self.set_tags_by_track_info(track_info)
+
+        # タグの変更を保存する
+        self.flac_file.save()
+
+    def set_tags_by_track_info(self, track_info):
+        """
+        トラック情報のタグ情報を設定する。
+        """
         # ディスク情報
         disc_info = track_info.get_disc_info()
         # アルバム情報
@@ -197,15 +190,6 @@ class FlacFile(AudioFile):
         self.set_title(track_info.get_title())
         # アーティストリスト
         self.set_artist_list(track_info.get_artist_list())
-
-        # タグの変更を保存する
-        self.save()
-
-    def save(self):
-        """
-        タグの変更を保存する。
-        """
-        self.flac_file.save()
 
     def get_extension(self):
         """

@@ -21,19 +21,10 @@ class DiscInfo:
         アルバム情報を返す。
         """
         return self.album_info
-    
-#     def set_album_info(self, album_info):
-#         """アルバム情報を設定する。"""
-#         self.album_info = album_info
 
     def get_track_info_list(self):
         """トラック情報リストを返す。"""
         return self.track_info_list[:]
-
-#     def add_track_info(self, track_info):
-#         """トラック情報を追加する。"""
-#         self.track_info_list.append(track_info)
-#         track_info.set_disc_info(self)
 
     def get_disc_number(self):
         """ディスク番号を返す。"""

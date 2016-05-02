@@ -26,6 +26,9 @@ class TagFileReader:
         self.directory = directory
 
     def __enter__(self):
+        """
+        withブロック開始時にコールバックされる。
+        """
         # ファイルパス
         file_path = os.path.join(self.directory, tag_file_name)
         # ファイルを開く
@@ -34,6 +37,9 @@ class TagFileReader:
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
+        """
+        withブロック終了時にコールバックされる。
+        """
         # ファイルを閉じる
         self.file.close()
 

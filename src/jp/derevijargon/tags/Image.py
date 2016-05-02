@@ -1,5 +1,7 @@
 # coding: utf-8
+
 import os
+
 
 class Image:
     """
@@ -28,9 +30,9 @@ class Image:
         # データ
         with open(image_file, "rb") as file:
             data = file.read()
-            
+
         return Image(extension, data)
-    
+
     def __init__(self, extension=None, data=None):
         """
         コンストラクタ。
@@ -44,13 +46,7 @@ class Image:
         """
         ファイル名を返す。
         """
-        return Image.file_name + self.get_extension()
-
-    def get_extension(self):
-        """
-        拡張子を返す。
-        """
-        return self.extension
+        return Image.file_name + self.extension
 
     def get_data(self):
         """

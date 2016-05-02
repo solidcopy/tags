@@ -8,7 +8,7 @@ from jp.derevijargon.tags.Format import Format
 
 def find_files(directory):
     """
-    オーディオファイルを検索し、Fileリストとして返す。
+    オーディオファイルを検索し、ファイルリストとして返す。
     """
     # ファイルリスト
     file_list = []
