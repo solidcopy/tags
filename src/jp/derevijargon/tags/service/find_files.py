@@ -16,11 +16,11 @@ def find_files(directory):
     # フォーマットをループする
     for a_format in Format:
         # このフォーマットのファイルをループする
-        for a_file in glob.glob(os.path.join(directory, "*." + a_format.value["ext"])):
+        for a_file in glob.glob(os.path.join(directory, "*" + a_format.value["ext"])):
             # ファイルクラス
-            fileClass = a_format.value["fileClass"]
+            FileClass = a_format.value["fileClass"]
             # ファイルクラスのインスタンスを作成する
-            new_file = fileClass(a_file)
+            new_file = FileClass(a_file)
             # ファイルをリストに追加する
             file_list.append(new_file)
 

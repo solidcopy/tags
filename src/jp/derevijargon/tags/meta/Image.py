@@ -26,7 +26,7 @@ class Image:
         画像ファイルからインスタンスを作成する。
         """
         # 拡張子
-        extension = os.path.splitext(image_file)[1]
+        extension = os.path.splitext(image_file)[-1]
         # データ
         with open(image_file, "rb") as file:
             data = file.read()
@@ -42,14 +42,12 @@ class Image:
         # データ
         self.data = data
 
+    def get_data(self):
+        """データを返す。"""
+        return self.data
+
     def get_file_name(self):
         """
         ファイル名を返す。
         """
         return Image.file_name + self.extension
-
-    def get_data(self):
-        """
-        データを返す。
-        """
-        return self.data

@@ -17,9 +17,7 @@ class DiscInfo:
         self.track_info_list = []
 
     def get_album_info(self):
-        """
-        アルバム情報を返す。
-        """
+        """アルバム情報を返す。"""
         return self.album_info
 
     def get_track_info_list(self):

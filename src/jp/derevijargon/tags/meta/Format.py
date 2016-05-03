@@ -10,4 +10,4 @@ class Format(Enum):
     オーディオファイルフォーマット
     """
     # FLAC
-    flac = {"ext":"flac", "fileClass":FlacFile}
+    flac = {"ext":".flac", "fileClass":FlacFile}
