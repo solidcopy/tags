@@ -101,5 +101,7 @@ class TagFileWriter:
         """
         画像をファイルに保存する。
         """
+        # ファイルを開く
         with open(os.path.join(self.directory, image.get_file_name()), "wb") as image_file:
+            # 画像を出力する
             image_file.write(image.get_data())

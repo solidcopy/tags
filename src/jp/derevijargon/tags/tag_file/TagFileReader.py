@@ -76,16 +76,16 @@ class TagFileReader:
         """
         # アルバム、アルバムアーティスト、発売日
         album, album_artist, date = lines
-        # 画像を取得する
-        image = self.get_image()
+        # 画像を読み込む
+        image = self.load_image()
         # アルバム情報
         album_info = AlbumInfo(album, album_artist, date, image)
 
         return album_info
 
-    def get_image(self):
+    def load_image(self):
         """
-        画像を取得する。
+        画像を読み込む。
         """
         # 画像の拡張子をループする
         for an_extension in set(Image.extensions.values()):
