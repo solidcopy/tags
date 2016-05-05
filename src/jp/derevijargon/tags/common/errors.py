@@ -3,7 +3,7 @@
 import jp.derevijargon.tags.common.messages as messages
 
 
-class UnknownServiceOptionError(BaseException):
+class UnknownServiceOptionError(Exception):
     """
     コマンドライン引数のサービス指定が不正である場合に発生するエラー。
     """
