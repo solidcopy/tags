@@ -1,5 +1,3 @@
-# coding: utf-8
-
 import unittest
 from unittest.mock import patch, MagicMock
 
@@ -10,15 +8,17 @@ class Test(unittest.TestCase):
     """
     Imageのテストケース。
     """
+
     def test_create_from_data(self):
         """
         create_from_data(mime, data)をテストする。
         """
+
         with patch("jp.derevijargon.tags.meta.Image.Image") as mock:
             # 戻り値を設定する
             mock.return_value = MagicMock()
             # MIMEと拡張子の対応は実物をそのまま設定する
-            mock.extensions = Image.extensions
+            mock.EXTENSION_MAP = Image.EXTENSION_MAP
 
             # テスト対象を実行する
             returned_value = Image.create_from_data("image/png", "xxxdataxxx")
@@ -29,10 +29,12 @@ class Test(unittest.TestCase):
             # 戻り値を確認する
             self.assertIs(returned_value, mock.return_value)
 
+
     def test_create_from_file(self):
         """
         create_from_file(image_file)をテストする。
         """
+
         # モックを設定する
         with patch("jp.derevijargon.tags.meta.Image.Image") as mock, patch("jp.derevijargon.tags.meta.Image.open") as open_mock:
 
@@ -49,36 +51,33 @@ class Test(unittest.TestCase):
             # 戻り値を確認する
             self.assertIs(returned_value, mock.return_value)
 
+
     def test_init(self):
         """
         コンストラクタをテストする。
         """
+
         # テスト対象を実行する
         returned_value = Image(".png", "xxxdataxxx")
 
         # 実行結果を検証する
-        self.assertEqual(returned_value.extension, ".png")
-        self.assertEqual(returned_value.data, "xxxdataxxx")
+        self.assertEqual(returned_value._extension, ".png")
+        self.assertEqual(returned_value._data, "xxxdataxxx")
+
 
     def test_accessors(self):
         """
         アクセサメソッドをテストする。
         """
+
         # テスト対象
         subject = Image(".png", "xxxdataxxx")
 
         # 拡張子
-        self.assertEqual(subject.get_data(), "xxxdataxxx")
+        self.assertEqual(subject.data, "xxxdataxxx")
+        # ファイル名
+        self.assertEqual(subject.file_name, "Folder.png")
 
-    def test_get_file_name(self):
-        """
-        get_file_name()をテストする。
-        """
-        # テスト対象
-        subject = Image(".png")
-
-        # 拡張子
-        self.assertEqual(subject.get_file_name(), "Folder.png")
 
 if __name__ == "__main__":
     unittest.main()

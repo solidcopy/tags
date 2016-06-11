@@ -1,5 +1,3 @@
-# coding: utf-8
-
 from jp.derevijargon.tags.meta.TrackInfo import TrackInfo
 
 
@@ -7,39 +5,33 @@ class DiscInfo:
     """
     ディスク情報
     """
-    def __init__(self, album_info=None):
+
+    def __init__(self, album_info):
         """
         コンストラクタ。
         """
         # アルバム情報
-        self.album_info = album_info
+        self._album_info = album_info
         # トラック情報リスト
-        self.track_info_list = []
+        self._track_info_list = []
 
-    def get_album_info(self):
-        """アルバム情報を返す。"""
-        return self.album_info
+    disc_number = property((lambda self: self._album_info.disc_info_list.index(self) + 1), doc="ディスク番号")
 
-    def get_track_info_list(self):
-        """トラック情報リストを返す。"""
-        return self.track_info_list[:]
+    album_info = property((lambda self: self._album_info), doc="アルバム情報")
 
-    def get_disc_number(self):
-        """ディスク番号を返す。"""
-        return self.album_info.get_disc_info_list().index(self) + 1
+    track_info_list = property((lambda self: self._track_info_list[:]), doc="トラック情報リスト")
 
-    def get_track_total(self):
-        """トラック数を返す。"""
-        return len(self.track_info_list)
+    track_total = property((lambda self: len(self._track_info_list)), doc="トラック数")
+
 
     def create_track_info(self, title=None, artist_list=None):
         """
         トラック情報を作成してリストに追加し、それを返す。
         """
         # トラック情報を作成する
-        track_info = TrackInfo(disc_info=self, title=title, artist_list=artist_list or [])
+        track_info = TrackInfo(disc_info=self, title=title, artist_list=artist_list)
 
         # トラック情報をリストに追加する
-        self.track_info_list.append(track_info)
+        self._track_info_list.append(track_info)
 
         return track_info

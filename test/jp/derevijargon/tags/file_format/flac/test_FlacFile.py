@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from jp.derevijargon.tags.tag_file.FlacFile import FlacFile
+from jp.derevijargon.tags.file_format.flac.FlacFile import FlacFile
 
 
 class Test(unittest.TestCase):
