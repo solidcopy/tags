@@ -1,5 +1,3 @@
-# coding: utf-8
-
 import os
 import re
 import sys
@@ -35,6 +33,7 @@ def select_services(args):
     # ファイルを元に実行サービスリストを取得する
     return select_services_by_file()
 
+
 def select_services_by_arg(service_option):
     """
     コマンドライン引数から実行するサービスを選択する。
@@ -62,6 +61,7 @@ def select_services_by_arg(service_option):
 
     return service_list
 
+
 def select_services_by_file():
     """
     実行するサービスをタグファイルの有無で選択する。
@@ -73,6 +73,7 @@ def select_services_by_file():
     # タグファイルがなければエクスポート関数を選択する
     else:
         return (export_service.execute,)
+
 
 if __name__ == "__main__":
     main()

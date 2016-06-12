@@ -34,10 +34,10 @@ class ID3AudioFile(AudioFile):
         # 発売日
         self.date = self.get_date(id3)
         # ディスク数/ディスク番号
-        self.disc_total, self.disc_number = self.parse_number_with_total(self.get_tag(id3, "TPOS"))
+        self.disc_number, self.disc_total = self.parse_number_with_total(self.get_tag(id3, "TPOS"))
 
         # トラック数/トラック番号
-        self.track_total, self.track_number = self.parse_number_with_total(self.get_tag(id3, "TRCK"))
+        self.track_number, self.track_total = self.parse_number_with_total(self.get_tag(id3, "TRCK"))
 
         # タイトル
         self.title = self.get_tag(id3, "TIT2")
@@ -66,7 +66,10 @@ class ID3AudioFile(AudioFile):
         """
 
         frame = id3.get(tag)
-        return frame.text if frame else ()
+        texts = []
+        for a_text in frame.text:
+            texts.append(a_text)
+        return texts
 
 
     def get_date(self, id3):
@@ -138,7 +141,7 @@ class ID3AudioFile(AudioFile):
             id3.add(TIT2(encoding=3, text=self.title))
         # アーティスト
         if self.artist_list:
-            id3.setall("TPE1", self.to_tpe1_frames(self.artist_list))
+            id3.add(self.to_tpe1_frame(self.artist_list))
         # 画像
         if self.image:
             id3.add(APIC(mime=self.image.mime, type=3, data=self.image.data, encoding=3, desc=""))
@@ -153,13 +156,12 @@ class ID3AudioFile(AudioFile):
         return result if result != "/" else None
 
 
-    def to_tpe1_frames(self, artist_list):
+    def to_tpe1_frame(self, artist_list):
         """
         アーティストリストをTPE1フレームリストに変換する。
         """
 
-        frames = []
+        frame = TPE1(encoding=3)
         for an_artist in artist_list:
-            frame = TPE1(encoding=3, text=an_artist)
-            frames.append(frame)
-        return frames
+            frame.append(an_artist)
+        return frame
