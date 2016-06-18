@@ -1,5 +1,5 @@
 @echo off
-set SRC=%TAGS_HOME%\src
-set PYTHONPATH=%SRC%;%PYTHONPATH%
+set AUDIO_FILES_HOME=%PROJECTS_HOME%\audio_files
+set PYTHONPATH=%TAGS_HOME%\src;%AUDIO_FILES_HOME%\src
 @echo on
-python %SRC%\jp\derevijargon\tags\main.py %1
+python %TAGS_HOME%\src\tags\main.py %1

@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import MagicMock, patch, call
 
-from jp.derevijargon.tags.service import rename_service
+from tags.service import rename_service
 
 
 class Test(unittest.TestCase):
@@ -16,8 +16,8 @@ class Test(unittest.TestCase):
         execute(directory)をテストする。
         """
         # モックを設定する
-        find_files = patch("jp.derevijargon.tags.service.rename_service.find_files")
-        rename = patch("jp.derevijargon.tags.service.rename_service.os.rename")
+        find_files = patch("tags.service.rename_service.find_files")
+        rename = patch("tags.service.rename_service.os.rename")
         with find_files as find_files, rename as rename:
 
             # ファイルを検索する

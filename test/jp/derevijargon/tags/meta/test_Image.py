@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from jp.derevijargon.tags.meta.Image import Image
+from tags.meta.Image import Image
 
 
 class Test(unittest.TestCase):
@@ -14,7 +14,7 @@ class Test(unittest.TestCase):
         create_from_data(mime, data)をテストする。
         """
 
-        with patch("jp.derevijargon.tags.meta.Image.Image") as mock:
+        with patch("tags.meta.Image.Image") as mock:
             # 戻り値を設定する
             mock.return_value = MagicMock()
             # MIMEと拡張子の対応は実物をそのまま設定する
@@ -36,7 +36,7 @@ class Test(unittest.TestCase):
         """
 
         # モックを設定する
-        with patch("jp.derevijargon.tags.meta.Image.Image") as mock, patch("jp.derevijargon.tags.meta.Image.open") as open_mock:
+        with patch("tags.meta.Image.Image") as mock, patch("tags.meta.Image.open") as open_mock:
 
             # 画像ファイルの読み込みをモック化する
             file = MagicMock()

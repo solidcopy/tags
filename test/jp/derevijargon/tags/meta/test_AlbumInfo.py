@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from jp.derevijargon.tags.meta.AlbumInfo import AlbumInfo
+from tags.meta.AlbumInfo import AlbumInfo
 
 
 class Test(unittest.TestCase):
@@ -96,7 +96,7 @@ class Test(unittest.TestCase):
         subject._disc_info_list = [disc_info1, disc_info2]
 
         # ディスク情報をモック化する
-        with patch("jp.derevijargon.tags.meta.AlbumInfo.DiscInfo") as mock:
+        with patch("tags.meta.AlbumInfo.DiscInfo") as mock:
             # テスト対象を実行する
             returned_value = subject.create_disc_info()
             # ディスク情報にアルバム情報が設定された

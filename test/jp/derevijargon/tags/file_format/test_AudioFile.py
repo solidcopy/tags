@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from jp.derevijargon.tags.file_format.AudioFile import AudioFile
+from tags.file_format.AudioFile import AudioFile
 
 
 class Test(unittest.TestCase):

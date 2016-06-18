@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from jp.derevijargon.tags.service import export_service
+from tags.service import export_service
 
 
 class Test(unittest.TestCase):
@@ -15,9 +15,9 @@ class Test(unittest.TestCase):
         execute(directory)をテストする。
         """
         # モックを設定する
-        with patch("jp.derevijargon.tags.service.export_service.find_files") as find_files \
-            , patch("jp.derevijargon.tags.service.export_service.create_album_info") as create_album_info \
-            , patch("jp.derevijargon.tags.service.export_service.TagFileWriter") as TagFileWriter:
+        with patch("tags.service.export_service.find_files") as find_files \
+            , patch("tags.service.export_service.create_album_info") as create_album_info \
+            , patch("tags.service.export_service.TagFileWriter") as TagFileWriter:
 
             # 検索されるファイルリスト
             find_files.return_value = ["file1", "file2"]
@@ -44,7 +44,7 @@ class Test(unittest.TestCase):
         ファイルが1つもない場合、メッセージを出力して終了することを確認する。
         """
         # ファイル検索関数をモック化する
-        with patch("jp.derevijargon.tags.service.export_service.find_files") as find_files:
+        with patch("tags.service.export_service.find_files") as find_files:
 
             # ファイルが1件も見つからない
             find_files.return_value = []

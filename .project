@@ -3,6 +3,7 @@
 	<name>tags</name>
 	<comment></comment>
 	<projects>
+		<project>audio_files</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

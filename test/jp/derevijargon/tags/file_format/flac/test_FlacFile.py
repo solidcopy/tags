@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from jp.derevijargon.tags.file_format.flac.FlacFile import FlacFile
+from tags.file_format.flac.FlacFile import FlacFile
 
 
 class Test(unittest.TestCase):
@@ -15,10 +15,10 @@ class Test(unittest.TestCase):
         テストを準備する。
         """
         # モックを設定する
-        self.init = patch("jp.derevijargon.tags.tag_file.FlacFile.AudioFile.__init__")
-        self.FLAC = patch("jp.derevijargon.tags.tag_file.FlacFile.FLAC")
-        self.Picture = patch("jp.derevijargon.tags.tag_file.FlacFile.Picture")
-        self.Image = patch("jp.derevijargon.tags.tag_file.FlacFile.Image")
+        self.init = patch("tags.tag_file.FlacFile.AudioFile.__init__")
+        self.FLAC = patch("tags.tag_file.FlacFile.FLAC")
+        self.Picture = patch("tags.tag_file.FlacFile.Picture")
+        self.Image = patch("tags.tag_file.FlacFile.Image")
 
     def test_init(self):
         """

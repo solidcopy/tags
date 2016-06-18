@@ -4,7 +4,7 @@ import os
 import unittest
 from unittest.mock import patch, MagicMock, call
 
-from jp.derevijargon.tags.tag_file.TagFileReader import TagFileReader
+from tags.tag_file.TagFileReader import TagFileReader
 
 
 class Test(unittest.TestCase):
@@ -12,7 +12,7 @@ class Test(unittest.TestCase):
     TagFileReaderのテストケース。
     """
     # モジュール名
-    mod_name = "jp.derevijargon.tags.tag_file.TagFileReader"
+    mod_name = "tags.tag_file.TagFileReader"
 
     def test_open(self):
         """

@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from jp.derevijargon.tags.meta.TrackInfo import TrackInfo
+from tags.meta.TrackInfo import TrackInfo
 
 
 class Test(unittest.TestCase):

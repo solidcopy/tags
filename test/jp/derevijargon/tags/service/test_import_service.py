@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from jp.derevijargon.tags.service import import_service
+from tags.service import import_service
 
 
 class Test(unittest.TestCase):
@@ -16,8 +16,8 @@ class Test(unittest.TestCase):
         execute(directory)をテストする。
         """
         # モックを設定する
-        find_files = patch("jp.derevijargon.tags.service.import_service.find_files")
-        TagFileReader = patch("jp.derevijargon.tags.service.import_service.TagFileReader")
+        find_files = patch("tags.service.import_service.find_files")
+        TagFileReader = patch("tags.service.import_service.TagFileReader")
         with find_files as find_files, TagFileReader as TagFileReader:
 
             # ファイルを検索する

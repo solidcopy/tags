@@ -5,9 +5,9 @@ import sys
 import unittest
 from unittest.mock import MagicMock, patch
 
-from jp.derevijargon.tags.common.errors import UnknownServiceOptionError
-import jp.derevijargon.tags.main as main
-from jp.derevijargon.tags.service import export_service, import_service, rename_service
+from tags.common.errors import UnknownServiceOptionError
+import tags.main as main
+from tags.service import export_service, import_service, rename_service
 
 
 class Test(unittest.TestCase):
@@ -19,7 +19,7 @@ class Test(unittest.TestCase):
         main()をテストする。
         """
         # select_servicesメソッドをモック化する
-        with patch("jp.derevijargon.tags.main.select_services") as select_services:
+        with patch("tags.main.select_services") as select_services:
             # 戻り値を設定する
             select_services.return_value = [MagicMock(), MagicMock()]
 
@@ -43,7 +43,7 @@ class Test(unittest.TestCase):
         サービス指定がある場合、サービス指定を元にサービスが選択されることを確認する。
         """
         # select_services_by_argメソッドをモック化する
-        with patch("jp.derevijargon.tags.main.select_services_by_arg") as select_services_by_arg:
+        with patch("tags.main.select_services_by_arg") as select_services_by_arg:
             # 戻り値を設定する
             select_services_by_arg.return_value = ['service1', 'service2']
 
@@ -57,7 +57,7 @@ class Test(unittest.TestCase):
         サービス指定がない場合、タグファイルの有無を元にサービスが選択されることを確認する。
         """
         # select_services_by_fileメソッドをモック化する
-        with patch("jp.derevijargon.tags.main.select_services_by_file") as select_services_by_file:
+        with patch("tags.main.select_services_by_file") as select_services_by_file:
             # 戻り値を設定する
             select_services_by_file.return_value = ['service1', 'service2']
 

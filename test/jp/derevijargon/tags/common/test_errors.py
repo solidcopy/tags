@@ -1,6 +1,6 @@
 import unittest
 
-from jp.derevijargon.tags.common.errors import UnknownServiceOptionError
+from tags.common.errors import UnknownServiceOptionError
 
 
 class Test(unittest.TestCase):

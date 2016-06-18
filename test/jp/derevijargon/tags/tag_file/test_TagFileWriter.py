@@ -4,7 +4,7 @@ import os
 import unittest
 from unittest.mock import patch, MagicMock, call
 
-from jp.derevijargon.tags.tag_file.TagFileWriter import TagFileWriter
+from tags.tag_file.TagFileWriter import TagFileWriter
 
 
 class Test(unittest.TestCase):
@@ -12,7 +12,7 @@ class Test(unittest.TestCase):
     TagFileWriterのテストケース。
     """
     # モジュール名
-    mod_name = "jp.derevijargon.tags.tag_file.TagFileWriter"
+    mod_name = "tags.tag_file.TagFileWriter"
 
     def test_open(self):
         """

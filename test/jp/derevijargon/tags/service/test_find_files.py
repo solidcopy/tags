@@ -4,7 +4,7 @@ import os
 import unittest
 from unittest.mock import patch, MagicMock, call
 
-from jp.derevijargon.tags.service.find_files import find_files
+from tags.service.find_files import find_files
 
 
 class Test(unittest.TestCase):
@@ -16,8 +16,8 @@ class Test(unittest.TestCase):
         """
         find_files(directory)をテストする。
         """
-        with patch("jp.derevijargon.tags.service.find_files.glob.glob") as glob \
-            , patch("jp.derevijargon.tags.service.find_files.Format") as Format:
+        with patch("tags.service.find_files.glob.glob") as glob \
+            , patch("tags.service.find_files.Format") as Format:
 
             # ファイルのコンストラクタをモック化する
             FlacFile = MagicMock(side_effect=["1.flac", "2.flac", "3.flac"])

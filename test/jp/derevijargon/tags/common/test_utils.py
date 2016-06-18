@@ -2,7 +2,7 @@
 
 import unittest
 
-from jp.derevijargon.tags.common.utils import to_int
+from tags.common.utils import to_int
 
 
 class Test(unittest.TestCase):

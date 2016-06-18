@@ -1,6 +1,6 @@
-import jp.derevijargon.tags.common.messages as messages
-from jp.derevijargon.tags.service.find_files import find_files
-from jp.derevijargon.tags.tag_file import read_tag_file
+import tags.common.messages as messages
+from tags.service.find_files import find_files
+from tags.tag_file import read_tag_file
 
 
 def execute(directory):

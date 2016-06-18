@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from jp.derevijargon.tags.meta.DiscInfo import DiscInfo
+from tags.meta.DiscInfo import DiscInfo
 
 
 class Test(unittest.TestCase):
@@ -58,7 +58,7 @@ class Test(unittest.TestCase):
         subject = DiscInfo(MagicMock())
 
         # トラック情報をモック化する
-        with patch("jp.derevijargon.tags.meta.DiscInfo.TrackInfo") as mock:
+        with patch("tags.meta.DiscInfo.TrackInfo") as mock:
             # テスト対象を実行する
             returned_value = subject.create_track_info("title!", ["art1", "art2"])
 
