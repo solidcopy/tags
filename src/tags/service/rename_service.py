@@ -1,7 +1,7 @@
 import os
 
 from tags.common import messages
-from tags.service.find_files import find_files
+from audio_files.find_files import find_files
 
 
 # ファイル名から置換する文字の辞書

@@ -4,7 +4,7 @@ import os
 import unittest
 from unittest.mock import patch, MagicMock, call
 
-from tags.service.find_files import find_files
+from audio_files.find_files import find_files
 
 
 class Test(unittest.TestCase):

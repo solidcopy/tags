@@ -1,6 +1,6 @@
 import tags.common.messages as messages
 from tags.meta.AlbumInfo import AlbumInfo
-from tags.service.find_files import find_files
+from audio_files.find_files import find_files
 from tags.tag_file import write_tag_file
 
 
