@@ -9,7 +9,7 @@ class Image:
     FILE_NAME = "Folder"
     """画像のファイル名"""
 
-    EXTENSION_MAP = {"image/png": ".png", "image/jpeg": ".jpg", "image/jpg": ".jpg", "image/gif": ".gif", "": ".jpg"}
+    EXTENSION_MAP = {"image/png": ".png", "image/jpeg": ".jpg", "image/jpg": ".jpg", "image/gif": ".gif", "image/bmp": ".bmp", "": ".jpg"}
     """
     画像のMIMEから拡張子への辞書
 
