@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from tags.meta.Image import Image
+from audio_files.Image import Image
 
 
 class Test(unittest.TestCase):

@@ -1,7 +1,7 @@
 import os
 
 from tags.meta.AlbumInfo import AlbumInfo
-from tags.meta.Image import Image
+from audio_files.Image import Image
 from tags.tag_file.const import tag_file_name, tag_file_open_options, artist_separator
 
 def read_tag_file(directory):
