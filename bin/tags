@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# hashsのホームディレクトリ
+SCRIPT_DIR=`dirname $0`
+TAGS_HOME=`dirname $SCRIPT_DIR`
+PROJECTS_HOME=`dirname $TAGS_HOME`
+AUDIO_FILES_HOME=$PROJECTS_HOME/audio_files
+
+# 仮想環境に切り替える
+source $TAGS_HOME/env/bin/activate
+
+# PYTHONPATHを設定する
+export PYTHONPATH=$PYTHONPATH:$TAGS_HOME/src:$AUDIO_FILES_HOME/src
+
+# 実行する
+python -m tags $@
