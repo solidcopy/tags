@@ -4,10 +4,6 @@ from tags.common import messages
 from audio_files.find_files import find_files
 
 
-# ファイル名から置換する文字の辞書
-REPLACE_CHAR_MAP = (("*", "-"), ("\\", ""), ("|", ""), (":", ""), ("\"", ""), ("<", "("), (">", ")"), ("/", ""), ("?", ""))
-
-
 def execute(directory):
     """
     リネーム処理を行う。
@@ -45,7 +41,7 @@ def determine_file_name(file):
     file_name += add_zero_paddings(file.track_number, file.track_total) + "."
 
     # タイトルを付与する
-    file_name += file.title
+    file_name += file.title_as_file_name
 
     # 拡張子を付与する
     file_name += file.extensions()[0]
@@ -69,14 +65,3 @@ def add_zero_paddings(number, max_number):
     digits = digits_format % number
 
     return digits
-
-
-def replace_invalid_chars(file_name):
-    """
-    ファイル名に使用できない文字を代替文字に置換する。
-    """
-
-    for target, replacement in REPLACE_CHAR_MAP:
-        file_name = file_name.replace(target, replacement)
-
-    return file_name
