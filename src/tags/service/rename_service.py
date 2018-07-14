@@ -46,9 +46,6 @@ def determine_file_name(file):
     # 拡張子を付与する
     file_name += file.extensions()[0]
 
-    # ファイル名に使用できない文字を代替文字に置換する
-    file_name = replace_invalid_chars(file_name)
-
     return file_name
 
 
