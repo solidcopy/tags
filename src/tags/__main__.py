@@ -3,7 +3,7 @@ import re
 import sys
 
 from tags.common import errors
-from tags.service import export_service, import_service, rename_service
+from tags.service import export_service, import_service, rename_service, check_service
 import tags.tag_file.const as const
 
 
@@ -39,7 +39,7 @@ def select_services_by_arg(service_option):
     コマンドライン引数から実行するサービスを選択する。
     """
     # 不正なサービス指定が含まれている場合は例外を投げる
-    if re.search("[^eir]", service_option):
+    if re.search("[^eirc]", service_option):
         raise errors.UnknownServiceOptionError(service_option)
 
     # サービスリスト
@@ -58,6 +58,10 @@ def select_services_by_arg(service_option):
     # リネーム
     if service_option.find("r") != -1:
         service_list.append(rename_service.execute)
+
+    # チェック
+    if service_option.find("c") != -1:
+        service_list.append(check_service.execute)
 
     return service_list
 
